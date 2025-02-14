@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "856e0791-7937-445e-8002-41c87ffc32b3",
+		"name": "alten-shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10285498",
+		"_collection_link": "https://universal-water-539449.postman.co/workspace/nuitee-integrations~3063309b-5025-4de7-8290-44fd6d3e9050/collection/10285498-856e0791-7937-445e-8002-41c87ffc32b3?action=share&source=collection_link&creator=10285498"
+	},
+	"item": [
+		{
+			"name": "save-many-products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"code\": \"f230fh0g3\",\r\n        \"name\": \"Bamboo Watch\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"bamboo-watch.jpg\",\r\n        \"price\": 65,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"nvklal433\",\r\n        \"name\": \"Black Watch\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"black-watch.jpg\",\r\n        \"price\": 72,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"zz21cz3c1\",\r\n        \"name\": \"Blue Band\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"blue-band.jpg\",\r\n        \"price\": 79,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"244wgerg2\",\r\n        \"name\": \"Blue T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"blue-t-shirt.jpg\",\r\n        \"price\": 29,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"h456wer53\",\r\n        \"name\": \"Bracelet\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"bracelet.jpg\",\r\n        \"price\": 15,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"av2231fwg\",\r\n        \"name\": \"Brown Purse\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"brown-purse.jpg\",\r\n        \"price\": 120,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"OUTOFSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"bib36pfvm\",\r\n        \"name\": \"Chakra Bracelet\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"chakra-bracelet.jpg\",\r\n        \"price\": 32,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"mbvjkgip5\",\r\n        \"name\": \"Galaxy Earrings\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"galaxy-earrings.jpg\",\r\n        \"price\": 34,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"vbb124btr\",\r\n        \"name\": \"Game Controller\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"game-controller.jpg\",\r\n        \"price\": 99,\r\n        \"category\": \"Electronics\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"cm230f032\",\r\n        \"name\": \"Gaming Set\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"gaming-set.jpg\",\r\n        \"price\": 299,\r\n        \"category\": \"Electronics\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"plb34234v\",\r\n        \"name\": \"Gold Phone Case\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"gold-phone-case.jpg\",\r\n        \"price\": 24,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"OUTOFSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"4920nnc2d\",\r\n        \"name\": \"Green Earbuds\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"green-earbuds.jpg\",\r\n        \"price\": 89,\r\n        \"category\": \"Electronics\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"250vm23cc\",\r\n        \"name\": \"Green T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"green-t-shirt.jpg\",\r\n        \"price\": 49,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"fldsmn31b\",\r\n        \"name\": \"Grey T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"grey-t-shirt.jpg\",\r\n        \"price\": 48,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"OUTOFSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"waas1x2as\",\r\n        \"name\": \"Headphones\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"headphones.jpg\",\r\n        \"price\": 175,\r\n        \"category\": \"Electronics\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"vb34btbg5\",\r\n        \"name\": \"Light Green T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"light-green-t-shirt.jpg\",\r\n        \"price\": 49,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"k8l6j58jl\",\r\n        \"name\": \"Lime Band\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"lime-band.jpg\",\r\n        \"price\": 79,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"v435nn85n\",\r\n        \"name\": \"Mini Speakers\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"mini-speakers.jpg\",\r\n        \"price\": 85,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"09zx9c0zc\",\r\n        \"name\": \"Painted Phone Case\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"painted-phone-case.jpg\",\r\n        \"price\": 56,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"mnb5mb2m5\",\r\n        \"name\": \"Pink Band\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"pink-band.jpg\",\r\n        \"price\": 79,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"r23fwf2w3\",\r\n        \"name\": \"Pink Purse\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"pink-purse.jpg\",\r\n        \"price\": 110,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"OUTOFSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"pxpzczo23\",\r\n        \"name\": \"Purple Band\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"purple-band.jpg\",\r\n        \"price\": 79,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"2c42cb5cb\",\r\n        \"name\": \"Purple Gemstone Necklace\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"purple-gemstone-necklace.jpg\",\r\n        \"price\": 45,\r\n        \"category\": \"Accessories\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"5k43kkk23\",\r\n        \"name\": \"Purple T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"purple-t-shirt.jpg\",\r\n        \"price\": 49,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"lm2tny2k4\",\r\n        \"name\": \"Shoes\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"shoes.jpg\",\r\n        \"price\": 64,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"nbm5mv45n\",\r\n        \"name\": \"Sneakers\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"sneakers.jpg\",\r\n        \"price\": 78,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 4\r\n    },\r\n    {\r\n        \"code\": \"zx23zc42c\",\r\n        \"name\": \"Teal T-Shirt\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"teal-t-shirt.jpg\",\r\n        \"price\": 49,\r\n        \"category\": \"Clothing\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"LOWSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"acvx872gc\",\r\n        \"name\": \"Yellow Earbuds\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"yellow-earbuds.jpg\",\r\n        \"price\": 89,\r\n        \"category\": \"Electronics\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 3\r\n    },\r\n    {\r\n        \"code\": \"tx125ck42\",\r\n        \"name\": \"Yoga Mat\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"yoga-mat.jpg\",\r\n        \"price\": 20,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 5\r\n    },\r\n    {\r\n        \"code\": \"gwuby345v\",\r\n        \"name\": \"Yoga Set\",\r\n        \"description\": \"Product Description\",\r\n        \"image\": \"yoga-set.jpg\",\r\n        \"price\": 20,\r\n        \"category\": \"Fitness\",\r\n        \"createdAt\": 1718114215761,\r\n        \"updatedAt\": 1718114215761,\r\n        \"shellId\": 15,\r\n        \"internalReference\": \"REF-123-456\",\r\n        \"inventoryStatus\": \"INSTOCK\",\r\n        \"rating\": 8\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"random product \",\r\n    \"description\": \"Product Description\",\r\n    \"image\": \"bamboo-watch.jpg\",\r\n    \"price\": 65,\r\n    \"category\": \"Accessories\",\r\n    \"shellId\": 15,\r\n    \"internalReference\": \"REF-123-456\",\r\n    \"inventoryStatus\": \"INSTOCK\",\r\n    \"rating\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"m.iken\",\r\n    \"email\": \"mouadiken2@gmail.com\",\r\n    \"firstName\": \"Mouad\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"m.iken\",\r\n    \"email\": \"mouadiken2@gmail.com\",\r\n    \"firstName\": \"Mouad\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch-products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch-product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

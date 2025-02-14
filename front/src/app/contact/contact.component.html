@@ -1,0 +1,26 @@
+<div class="contact-container">
+    <form [formGroup]="myForm" (ngSubmit)="onSend()">
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input pInputText type="text" id="email" name="email" formControlName="email" required>
+            <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+                Please provide a valid email.
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="message">Message</label>
+            <textarea pInputTextarea id="message" name="message" rows="5" cols="30" formControlName="message">
+          </textarea>
+          <div *ngIf="myForm.get('message').invalid && (myForm.get('message').dirty || myForm.get('message').touched)">
+            Please provide a valid message.
+          </div>
+        </div>
+        <div *ngIf="message;else other_content"   >
+             <p> {{message}}  </p>
+        </div>
+        
+        <ng-template #other_content class="flex justify-content-between">
+            <p-button type="submit" label="Envoyer" [disabled]="myForm.invalid" severity="primary" />
+        </ng-template>
+    </form>
+</div>
