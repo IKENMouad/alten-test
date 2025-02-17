@@ -1,5 +1,6 @@
 package com.alten.test.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +18,7 @@ import com.alten.test.service.ProductService;
 
 @RestController
 @RequestMapping("/api/v1/products")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class ProductController {
 
 	private final ProductService productService;
@@ -52,7 +53,7 @@ public class ProductController {
 	}
 
 	@GetMapping
-	public List<Product> getProducts() {
+	public List<Product> getProducts(Principal principal) {
 		return productService.getProducts();
 	}
 }

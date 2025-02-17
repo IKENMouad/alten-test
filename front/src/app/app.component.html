@@ -3,20 +3,24 @@
         <img src="assets/icons/icon-72x72.png" alt="logo" />
     </div>
     <div class="p-toolbar-group-center">
-        {{ title }} | <a style="margin-left: 10px; font-weight: 500; cursor: pointer;" routerLink="/login" >Guest</a>
+        {{ title }}
+
     </div>
-    <div class="p-toolbar-group-end">
-        <div class="card flex justify-center" >
-            <p-tag value="{{products.length}}" />
+    <div class="p-toolbar-group-end flex gap-2" style="margin-left: 10px; font-weight: 500; cursor: pointer;" >
+        <div>
+            <p-button  label="Logout" (onClick)="logout()"   severity="primary" />
         </div>
-        <i class="pi pi-shopping-cart" style="font-size: 2rem"></i> 
+        <div class="align-content-center flex justify-center" routerLink="/cart">
+            <div class="card flex justify-center">
+                <p-tag value="{{products.length}}" />
+            </div>
+            <i class="pi pi-shopping-cart" style="font-size: 2rem"></i>
+        </div>
     </div>
 </p-toolbar>
-<p-splitter 
-    [panelSizes]="[20, 80]" 
-    [style]="{ height: 'calc(100vh - 100px)' }">
+<p-splitter [panelSizes]="[20, 80]" [style]="{ height: 'calc(100vh - 100px)' }">
     <ng-template pTemplate>
-        <div class="w-full">
+        <div *ngIf="isAuth" class="w-full">
             <app-panel-menu />
         </div>
     </ng-template>

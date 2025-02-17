@@ -1,0 +1,22 @@
+<div *ngIf="(products$ | async) as products">
+
+    <div *ngIf="products.length>0 else emptyList">
+        <div class="product-item" *ngFor="let product of products">
+            <p-card class="block mb-2">
+                <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
+                <div class="text-lg font-medium text-900 mt-2">{{ product.name }}</div>
+    
+                <ng-template pTemplate="footer">
+                    <div class="flex gap-3 mt-1">
+                        <p-button label="Supprimer au panier" severity="danger" (onClick)="onRemoveFromCard(product)" />
+                    </div>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+    <ng-template #emptyList>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <p>Le panier est vide</p>
+        </div>
+    </ng-template>
+</div>

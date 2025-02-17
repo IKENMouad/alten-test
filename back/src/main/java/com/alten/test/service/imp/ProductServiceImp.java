@@ -1,9 +1,13 @@
 package com.alten.test.service.imp;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.security.authorization.AuthorizationDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.alten.test.model.Product;
@@ -32,8 +36,15 @@ public class ProductServiceImp implements ProductService {
 		return sb.toString();
 	}
 
+	private boolean isAdmin() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		return authentication != null && "admin@admin.com".equals(authentication.getName());
+	}
+
 	@Override
 	public Product updateProduct(Long id, Product product) {
+		if (!isAdmin())
+			throw new AuthorizationDeniedException("Seul l'administrateur peut effectuer cette action");
 		Product existedProduct = productRepo.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
 		existedProduct.setName(product.getName());
 		existedProduct.setPrice(product.getPrice());
@@ -46,6 +57,8 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public String deleteProduct(Long id) {
+		if (!isAdmin())
+			throw new AuthorizationDeniedException("Seul l'administrateur peut effectuer cette action");
 		try {
 			productRepo.deleteById(id);
 			return "DELETED";
@@ -56,6 +69,9 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public Product addProduct(Product product) {
+		if (!isAdmin())
+			throw new AuthorizationDeniedException("Seul l'administrateur peut effectuer cette action");
+
 		product.setCreatedAt(System.currentTimeMillis());
 		if (product.getCode() == null)
 			product.setCode(generateProductCode());
@@ -64,6 +80,9 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public List<Product> addProducts(List<Product> products) {
+		if (!isAdmin())
+			throw new AuthorizationDeniedException("Seul l'administrateur peut effectuer cette action");
+
 		List<Product> createdProducts = new ArrayList<>();
 
 		for (Product product : products)

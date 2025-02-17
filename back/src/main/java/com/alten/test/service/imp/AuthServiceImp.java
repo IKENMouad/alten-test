@@ -2,16 +2,16 @@ package com.alten.test.service.imp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.alten.test.config.JwtUtil;
 import com.alten.test.model.User;
+import com.alten.test.model.UserDetailsImpl;
 import com.alten.test.repository.UserRepository;
 import com.alten.test.service.AuthService;
+import com.alten.test.shared.AuthResponse;
 
 @Service
 public class AuthServiceImp implements AuthService {
@@ -31,35 +31,48 @@ public class AuthServiceImp implements AuthService {
 	private JwtUtil jwtUtil;
 
 	@Override
-	public String account(User user) {
+	public AuthResponse account(User user) {
 		try {
+
+			if (userRepository.existsByEmail(user.getEmail()))
+				throw new RuntimeException("Account already exist with the provided email");
+
 			String hashedPass = passwordEncoder.encode(user.getPassword());
 			user.setPassword(hashedPass);
 
 			userRepository.save(user);
 
-			return "ACCOUNT_CREATED";
+			AuthResponse response = new AuthResponse();
+			response.setId(user.getId());
+			response.setEmail(user.getEmail());
+			response.setUsername(user.getUsername());
+
+			return response;
 		} catch (Exception e) {
-			return "ACCOUNT_NOT_CREATED";
+			throw new RuntimeException(e.getMessage());
 		}
 	}
 
 	@Override
-	public String token(User user) throws Exception {
+	public AuthResponse token(User user) throws Exception {
 		try {
+
+			final UserDetailsImpl userDetails = (UserDetailsImpl) userDetailsServiceImpl
+					.loadUserByUsername(user.getEmail());
 			authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
 
-			final UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(user.getEmail());
-			System.out.println(userDetails.getUsername());
-			return jwtUtil.generateToken(userDetails);
+			String jwtToken = jwtUtil.generateToken(userDetails);
 
+			AuthResponse response = new AuthResponse();
+			response.setId(userDetails.getId());
+			response.setEmail(userDetails.getUsername());
+			response.setUsername(userDetails.getName());
+			response.setToken(jwtToken);
+
+			return response;
 		} catch (Exception e) {
-			if (e instanceof BadCredentialsException) {
-				throw new RuntimeException("Error: Bad Credentials " + e.getMessage());
-			} else {
-				throw new RuntimeException("Error: " + e.getMessage());
-			}
+			throw new RuntimeException(e.getMessage());
 		}
 	}
 

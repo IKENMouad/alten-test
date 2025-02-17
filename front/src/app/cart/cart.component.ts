@@ -2,8 +2,8 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from 'app/products/data-access/product.model';
-import { CartActions } from 'app/store/cart.actions';
-import { selectCart,  } from 'app/store/cart.selectors';
+import { CartActions } from 'app/store/cart/cart.actions';
+import { selectCart,  } from 'app/store/cart/cart.selectors';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DataViewModule } from 'primeng/dataview';
@@ -13,10 +13,10 @@ import { Observable } from 'rxjs';
   selector: 'app-card',
   standalone: true,
   imports: [CommonModule,DataViewModule, CardModule, ButtonModule,AsyncPipe],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  templateUrl: './cart.component.html',
+  styleUrl: './cart.component.css'
 })
-export class CardComponent implements OnInit {
+export class CartComponent implements OnInit {
   private store = inject(Store)
 
   products$!: Observable<ReadonlyArray<Product>>;
@@ -25,10 +25,7 @@ export class CardComponent implements OnInit {
     this.products$ = this.store.select(selectCart);
   }
 
-
   public onRemoveFromCard = (product: Product) =>  {
     this.store.dispatch(CartActions.removeProduct({id:product.id}))
   };
-
-
 }

@@ -42,7 +42,13 @@
 			"name": "save-product",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"random product \",\r\n    \"description\": \"Product Description\",\r\n    \"image\": \"bamboo-watch.jpg\",\r\n    \"price\": 65,\r\n    \"category\": \"Accessories\",\r\n    \"shellId\": 15,\r\n    \"internalReference\": \"REF-123-456\",\r\n    \"inventoryStatus\": \"INSTOCK\",\r\n    \"rating\": 5\r\n}",
@@ -75,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"m.iken\",\r\n    \"email\": \"mouadiken2@gmail.com\",\r\n    \"firstName\": \"Mouad\",\r\n    \"password\": \"password\"\r\n}",
+					"raw": "{\r\n    \"username\": \"m.iken\",\r\n    \"email\": \"mouadiken2@gmail.com\",\r\n    \"firstName\": \"Mouad\",\r\n    \"password\": \"password\"\r\n}\r\n//  Admin USER\r\n// {\r\n//     \"username\": \"admin\",\r\n//     \"email\": \"admin@admin.com\",\r\n//     \"firstName\": \"Admin\",\r\n//     \"password\": \"password\"\r\n// }   ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,12 +106,38 @@
 		},
 		{
 			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set Search ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.token).exist\r",
+							"    pm.environment.set(\"token\", \"Bearer \"+jsonData.token);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"m.iken\",\r\n    \"email\": \"mouadiken2@gmail.com\",\r\n    \"firstName\": \"Mouad\",\r\n    \"password\": \"password\"\r\n}",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@admin.com\",\r\n    \"firstName\": \"Admin\",\r\n    \"password\": \"password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -135,7 +167,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",

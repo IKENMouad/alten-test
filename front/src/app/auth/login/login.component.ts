@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
-import { Observable, Subscription } from 'rxjs';
+import { catchError, map, Observable, pipe, take, } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -55,15 +55,10 @@ export class LoginComponent {
       );
     }
 
-    authObs.subscribe(
-      (response) => {
-        console.log(response);
-        this.router.navigate(['/']);
-      },
-      (errorMessage) => {
-        this.error = errorMessage;
-      }
-    );
+    authObs.subscribe({
+      next: (_) => { },
+      error: (err) => this.error = err
+    });
   }
 
   getPasswordErrors(password: FormControl) {

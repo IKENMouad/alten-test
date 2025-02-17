@@ -1,10 +1,12 @@
 package com.alten.test.service;
 
 import com.alten.test.model.User;
+import com.alten.test.shared.AuthResponse;
+import com.alten.test.shared.ErrorResponse;
 
 public interface AuthService {
 
-	String account(User user);
+	AuthResponse account(User user);
 
-	String token(User user) throws Exception;
+	AuthResponse token(User user) throws Exception;
 }

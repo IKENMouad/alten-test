@@ -29,11 +29,6 @@ export class PanelMenuComponent {
       routerLink: ['/products/list']
     },
     {
-      label: 'Card',
-      icon: 'pi pi-barcode',
-      routerLink: ['/card']
-    },
-    {
       label: 'Contact',
       icon: 'pi pi-barcode',
       routerLink: ['/contact']

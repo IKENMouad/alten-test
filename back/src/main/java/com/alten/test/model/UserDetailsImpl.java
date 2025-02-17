@@ -15,14 +15,16 @@ import lombok.NoArgsConstructor;
 @Getter
 public class UserDetailsImpl implements UserDetails {
 
+	private Long id;
+	private String name;
 	private String email;
-
 	private String password;
 
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public static UserDetailsImpl build(User user) {
-		return new UserDetailsImpl(user.getEmail(), user.getPassword(), Arrays.asList());
+		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(),
+				Arrays.asList());
 	}
 
 	@Override

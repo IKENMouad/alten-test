@@ -1,25 +1,22 @@
 import { enableProdMode, importProvidersFrom, isDevMode, provideZoneChangeDetection } from "@angular/core";
-
 import { registerLocaleData } from "@angular/common";
-import {
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from "@angular/common/http";
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi, } from "@angular/common/http";
 import localeFr from "@angular/common/locales/fr";
 import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideRouter } from "@angular/router";
-import { APP_ROUTES } from "app/app.routes";
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
 import { ConfirmationService, MessageService } from "primeng/api";
 import { DialogService } from "primeng/dynamicdialog";
 import { AppComponent } from "./app/app.component";
 import { environment } from "./environments/environment";
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
+import { APP_ROUTES } from "app/app.routes";
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { cartReducer, } from "app/store/cart.reducer";
-import { CartEffects } from "app/store/cart.effects";
-
+import { cartReducer, } from "app/store/cart/cart.reducer";
+import { authReducer } from "app/store/auth/auth.reducer";
+import { authInterceptor } from "app/interceptors/auth.interceptor";
+ 
 if (environment.production) {
   enableProdMode();
 }
@@ -27,7 +24,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(BrowserModule),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(  withInterceptors ([authInterceptor])  ),
     provideAnimations(),
     provideRouter(APP_ROUTES),
     ConfirmationService,
@@ -37,9 +34,10 @@ bootstrapApplication(AppComponent, {
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideStore({
-      cart: cartReducer
+      cart: cartReducer,
+      auth: authReducer
     }),
-    provideEffects([CartEffects])
+    provideEffects([])
 
   ],
 }).catch((err) => console.log(err));

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alten.test.model.User;
 import com.alten.test.service.AuthService;
+import com.alten.test.shared.AuthResponse;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -19,12 +20,12 @@ public class AuthController {
 	private AuthService authService;
 
 	@PostMapping("/account")
-	public String account(@RequestBody User user) {
+	public AuthResponse account(@RequestBody User user) {
 		return authService.account(user);
 	}
 
 	@PostMapping("/token")
-	public String token(@RequestBody User user) throws Exception {
+	public AuthResponse token(@RequestBody User user) throws Exception {
 		return authService.token(user);
 	}
 
