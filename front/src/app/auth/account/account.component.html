@@ -1,1 +1,48 @@
-<p>account works!</p>
+<div class="contact-container">
+    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+      
+      <div class="flex justify-center gap-2 mt-5" >
+          <div>
+              <input pInputText type="text" id="username" name="username" formControlName="username"  placeholder="user name" required>
+              <div
+                  *ngIf="myForm.get('username').invalid && (myForm.get('username').dirty || myForm.get('username').touched)">
+                  Veuillez fournir un e-mail valide.
+              </div>
+          </div>
+  
+          <div>
+              <input pInputText type="text" id="firstname" name="firstname" formControlName="firstname"  placeholder="first name" required>
+              <div
+                  *ngIf="myForm.get('firstname').invalid && (myForm.get('firstname').dirty || myForm.get('firstname').touched)">
+                  Veuillez fournir un e-mail valide.
+              </div>
+          </div>
+      </div>
+        
+        <div class="form-field">
+            <label for="email">Email account</label>
+            <input pInputText type="text" id="email" name="email" formControlName="email" required>
+            <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+                Veuillez fournir un e-mail valide.
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="password">Password</label>
+            <input pInputText type="email" id="password" name="password" formControlName="password" required>
+
+            <div
+                *ngIf="myForm.get('password').invalid && (myForm.get('password').dirty || myForm.get('password').touched)">
+                Veuillez fournir un mot de passe valide.
+            </div>
+        </div>
+
+        <div class="flex justify-content-between">
+            <p-button type="submit" label="Créer un compte" [disabled]="myForm.invalid" severity="primary" />
+        </div>
+        <div>
+            <a style="margin-left: 10px; font-weight: 500; cursor: pointer;" routerLink="/login">Tu as déjà un compte</a>
+        </div>
+
+        <p style="background-color: red;" *ngIf="error">{{error}}</p>
+    </form>
+</div>

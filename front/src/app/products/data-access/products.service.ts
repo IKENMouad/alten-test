@@ -45,7 +45,7 @@ import { catchError, Observable, tap, throwError } from "rxjs";
     }
 
     getErrorHandler(errorRes: HttpErrorResponse) {
-        let errorMessage = errorRes.error.message;
+        let errorMessage = errorRes.error?.message;
         return throwError(() => new Error(errorMessage));
     }
 }

@@ -8,6 +8,19 @@
 
 (*) Afin de tester votre API, veuillez proposer une stratégie de test appropriée.
 
+# 
+- pour faire le test, vous pouvez démarrer l'application du service backend (Java/Spring boot) sur le port 8080. elle a utilisé H2 in-memory comme base de données.
+
+- vous pouvez utiliser le backend pour tester à l'aide de la collection Postman qui contient les requêtes requises pour l'API.
+
+- pour le front-end, démarrez le projet angulaire sur le port 4200.
+
+- créez 2 comptes (ex : xxx@xxx.com et admin@admin.com). et essayez de vous connecter en utilisant l'e-mail/password.
+
+- seul l'administrateur peut créer/supprimer/mettre à jour un produit
+
+
+
 ## Front-end
 
 Le site de e-commerce d'Alten a besoin de s'enrichir de nouvelles fonctionnalités.

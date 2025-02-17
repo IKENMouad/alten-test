@@ -7,7 +7,7 @@
 
     </div>
     <div class="p-toolbar-group-end flex gap-2" style="margin-left: 10px; font-weight: 500; cursor: pointer;" >
-        <div>
+        <div *ngIf="isAuth">
             <p-button  label="Logout" (onClick)="logout()"   severity="primary" />
         </div>
         <div class="align-content-center flex justify-center" routerLink="/cart">
